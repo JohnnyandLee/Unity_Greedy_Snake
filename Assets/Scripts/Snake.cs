@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
+    public GameUI gameUI;
+
     Vector3 direction;
     public float speed;
 
@@ -72,6 +74,8 @@ public class Snake : MonoBehaviour
             //Instantiate(bodyPrefab);
 
             bodies.Add(Instantiate(bodyPrefab));
+
+            gameUI.AddScore();
         }
         //Debug.Log(collision);        
 
@@ -94,5 +98,7 @@ public class Snake : MonoBehaviour
         }
         bodies.Clear();
         bodies.Add(transform);
+
+        gameUI.ResetScore();
     }
 }
