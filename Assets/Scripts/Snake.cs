@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Snake : MonoBehaviour
@@ -18,7 +19,7 @@ public class Snake : MonoBehaviour
 
         Time.timeScale = speed;
 
-        bodies.Add(transform);
+        ResetStage();
     }
 
     // Update is called once per frame
@@ -66,12 +67,32 @@ public class Snake : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Food")){
+        if (collision.CompareTag("Food"))
+        {
             //Instantiate(bodyPrefab);
 
             bodies.Add(Instantiate(bodyPrefab));
         }
         //Debug.Log(collision);        
-        
+
+        if (collision.CompareTag("Obstacle"))
+        {
+            Debug.Log("game over");
+
+            ResetStage();
+        }
+    }
+
+    void ResetStage()
+    {
+        transform.position = Vector3.zero;
+        direction = Vector3.zero;
+
+        for (int i = 1; i < bodies.Count; i++)
+        {
+            Destroy(bodies[i].gameObject);
+        }
+        bodies.Clear();
+        bodies.Add(transform);
     }
 }
