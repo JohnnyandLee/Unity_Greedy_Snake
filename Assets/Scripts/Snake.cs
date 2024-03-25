@@ -29,28 +29,28 @@ public class Snake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && direction != Vector3.down)
         {
            // Debug.Log("W");
             //transform.Translate(Vector3.up);
 
             direction = Vector3.up;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && direction != Vector3.up)
         {
             //Debug.Log("S");
             //transform.Translate(0, -1, 0);
 
             direction = Vector3.down;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && direction != Vector3.right)
         {
             //Debug.Log("A");
             //transform.Translate(-1, 0, 0);
 
             direction = Vector3.left;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && direction != Vector3.left)
         {
             //Debug.Log("D");
             //transform.Translate(1, 0, 0);
