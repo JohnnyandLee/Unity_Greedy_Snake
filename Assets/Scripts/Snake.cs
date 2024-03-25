@@ -7,6 +7,8 @@ public class Snake : MonoBehaviour
 {
     public GameUI gameUI;
 
+    public GameAudio gameAudio;
+
     Vector3 direction;
     public float speed;
 
@@ -76,6 +78,8 @@ public class Snake : MonoBehaviour
             bodies.Add(Instantiate(bodyPrefab));
 
             gameUI.AddScore();
+
+            gameAudio.PlayEatSound();
         }
         //Debug.Log(collision);        
 
@@ -84,6 +88,8 @@ public class Snake : MonoBehaviour
             Debug.Log("game over");
 
             ResetStage();
+
+            gameAudio.ReplayBackgroundMusic();
         }
     }
 
