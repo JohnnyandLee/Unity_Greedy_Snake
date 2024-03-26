@@ -10,3 +10,5 @@ This project is developed using C# within the Unity framework, is to design a ga
 ## Demo
 Download the GreedySnake.mp4 file
 
+<img src="demo.png">
+
